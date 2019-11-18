@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { getCharacters, getCharactersLoading } from '../selectors/charactersSelectors';
-import { fetchCharacters } from '../actions/characterActions';
+import { getCharactersPromise } from '../actions/characterActions';
 import Characters from '../components/Characters';
 
 const AllCharacters = () => {
   const list = useSelector(state => getCharacters(state));
   const loading = useSelector(state => getCharactersLoading(state));
   const dispatch = useDispatch();
-  const loadCharacters = () => dispatch(fetchCharacters());
+  const loadCharacters = () => dispatch(getCharactersPromise());
 
   useEffect(() => {
     loadCharacters();

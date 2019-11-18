@@ -6,12 +6,11 @@ export const FETCH_CHARACTERS_DONE = 'FETCH_CHARACTERS_DONE';
 export const FETCH_ERROR = 'FETCH_ERROR';
 
 export const fetchCharacters = () => dispatch => {
-  console.log('hello');
   dispatch({
     type: FETCH_CHARACTERS_LOADING
   });
 
-  getCharacters()
+  return getCharacters()
     .then(characters => {
       dispatch({
         type: FETCH_CHARACTERS,
@@ -29,3 +28,11 @@ export const fetchCharacters = () => dispatch => {
       });
     });
 };
+
+export const getCharactersPromise = () => ({
+  type: FETCH_CHARACTERS,
+  pendingType: FETCH_CHARACTERS_LOADING,
+  fulfilledType: FETCH_CHARACTERS_DONE,
+  payload: getCharacters()
+});
+
