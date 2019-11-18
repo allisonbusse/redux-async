@@ -1,0 +1,8 @@
+.Characters {
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  justify-content: space-evenly;
+  padding-left: 0;
+  margin: 0 40px;
+}
